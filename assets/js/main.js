@@ -1,3 +1,5 @@
+window.addEventListener('scroll', onScroll);
+
 function onScroll() {
    /*  const element = document.getElementById("navigation");
     const classLista = element.classList;
