@@ -8,10 +8,22 @@ function onScroll() {
         element.classList = 'scroll';
     } */
 
+    showNavOnScrool();
+    showBackToTopButtonOnScroll();
+}
+
+function showNavOnScrool() {
     navigation.classList.add('scroll');
     
     if(scrollY === 0) 
         navigation.classList.remove('scroll');
+}
+
+function showBackToTopButtonOnScroll() {
+    backToTopButton.classList.remove('show');
+    
+    if(scrollY >=500 ) 
+        backToTopButton.classList.add('show');
 }
 
 function openMenu() {
