@@ -17,7 +17,7 @@
 }
 
 .wrapper {
-    width: 37.5rem;
+    width: min(50rem, 100%);
     margin: 0 auto;
     padding-inline: 2.4rem;
 }
@@ -147,7 +147,7 @@ p {
 .stats {
     padding: 0 4rem;
     display: flex;
-    width: 32.7rem;
+    width: 100%;
     height: 47rem;
     margin-inline: auto;
     background: var(--brand-beige);
@@ -208,6 +208,10 @@ nav button {
     cursor: pointer;
 }
 
+nav .menu, nav .close-menu {
+    position: fixed;
+}
+
 .menu,
 .close-menu,
 body.menu-expanded .open-menu{
@@ -229,7 +233,6 @@ body.menu-expanded >:not(nav) {
 }
 
 body.menu-expanded .menu{
-    position: fixed;
     top: 0;
     left: 0;
     background-color: var(--primary-color);
@@ -416,6 +419,100 @@ footer .wrapper .socialLinks {
     opacity: 1;
     visibility: visible;
     transform: translate(0);
+}
+
+@media screen and (min-width: 1024px) {
+    /* RESET */
+
+    .wrapper {
+        width: min(112rem, 100%);
+    }
+
+    nav#navigation .wrapper * {/* pegue todos os elementos dentro desse local*/
+        margin: 0;
+        padding: 0;
+        visibility: initial;
+        display: initial;
+        opacity: initial;
+        flex-direction: initial;
+        position: initial;
+        transform: initial;
+        color: initial;
+        background-color: initial;
+        font-size: initial;
+        font-weight: initial;
+    }
+
+    nav#navigation .close-menu,
+    nav#navigation .open-menu,
+    nav#navigation .socialLinks {
+        display: none;
+    }
+
+    nav#navigation .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+    }
+
+    nav#navigation .menu ul:nth-child(1) {
+        display: flex;
+        gap: 3.2rem;
+    }
+
+    nav#navigation .menu ul li a{
+        color: var(--primary-color);
+        opacity: 0.7;
+    }
+
+    nav#navigation .menu a.button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2.4rem;
+
+        border: 1px solid var(--primary-color);
+        border-radius: 4rem;
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        text-transform: uppercase;
+    }
+
+    nav#navigation.scroll .menu ul li a {
+        color: var(--brand-light);
+        z-index: 100;
+        opacity: 0.6;
+    }
+
+    nav#navigation.scroll .menu a.button {
+        border-color: #FFF;
+        color: #FFF;
+    }
+
+    nav#navigation .menu li a:hover {
+        opacity: 1;
+        font-weight: 700;
+    }
+
+    nav#navigation .menu li a::after {
+        content: "";
+        width: 100%;
+        height: 0.2rem;
+        background-color: var(--primary-color);
+
+        display: block;
+        position: relative;
+        bottom: -2rem;
+
+        left: -0.7rem;
+        padding-inline: 0.7rem;
+    }
+
+    nav#navigation.scroll .menu li a::after {
+        background-color: #FFF;
+    }
 }
 
 
