@@ -117,7 +117,7 @@ ul {
 #home::before {
     content: "";
     width: 100%;
-    height: calc(108rem + var(--nav-height));
+    height: calc(106rem);
     background-color: var(--brand-light);
     display: block;
     position: absolute;
@@ -426,6 +426,7 @@ footer .wrapper .socialLinks {
 
     .wrapper {
         width: min(112rem, 100%);
+        display: grid;
     }
 
     nav#navigation .wrapper * {/* pegue todos os elementos dentro desse local*/
@@ -496,6 +497,7 @@ footer .wrapper .socialLinks {
         transition: opacity 0.4s;
     }
 
+    nav#navigation .menu li a.active,
     nav#navigation .menu li a:hover {
         opacity: 1;
         font-weight: 700;
@@ -519,11 +521,13 @@ footer .wrapper .socialLinks {
         background-color: #FFF;
     }
 
+    nav#navigation .menu li a.active::after,
     nav#navigation .menu li a:hover::after {
         padding-inline: 0.7rem;
         width: 100%;
     }
 
+    nav#navigation.scroll .menu li a.active,
     nav#navigation.scroll .menu li a:hover {
         opacity: 1;
     }
@@ -534,10 +538,71 @@ footer .wrapper .socialLinks {
         border: none;
     }
 
+    nav#navigation .menu a.button.active,
     nav#navigation .menu a.button:hover {
         background-color: var(--primary-color);
         border: none;
         color: #FFF;
+    }
+
+    /*################ HOME ##################*/
+    #home {
+        padding: var(--nav-height);
+    }
+
+    #home::before {
+        height: calc(77.5rem);
+    }
+
+    #home .wrapper {
+        grid-template-columns: 60.5rem 1fr;
+        grid-template-areas: 
+        'A B'
+        'C C';
+    }
+
+    #home .col-a {
+        grid-area: A;
+        text-align: left;
+        align-self: center;
+    }
+
+    #home .col-b {
+        grid-area: B;
+    }
+
+    #home h1 {
+        font-size: 5.2rem;
+    }
+
+    #home .content p {
+        font-size: 1.8rem;
+    }
+
+    #home .stats {
+        grid-area: C;
+        flex-direction: row;
+        align-items: center;
+        padding: 6rem;
+        justify-content: space-around;
+        height: 30rem;
+        gap: 0;
+    }
+
+    #home .stats .stat {
+        flex: 1;
+    }
+
+    #home .stats .stat + .stat {/* procure no .stats, um .stat que tenha um .stat anterior*/
+        border-left: 1px solid var(--primary-color);
+    }
+
+    #home .button {
+        margin: 0;
+    }
+
+    #home img {
+        width: 42rem;
     }
 }
 
