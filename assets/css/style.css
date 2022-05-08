@@ -424,9 +424,22 @@ footer .wrapper .socialLinks {
 @media screen and (min-width: 1024px) {
     /* RESET */
 
+    body {
+        overflow: auto;
+    }
+
     .wrapper {
         width: min(112rem, 100%);
         display: grid;
+    }
+
+    section {
+        padding-bottom: 16rem;
+    }
+
+    section h2 {
+        font-size: 4rem;
+        line-height: 5.2rem;
     }
 
     nav#navigation .wrapper * {/* pegue todos os elementos dentro desse local*/
@@ -603,6 +616,23 @@ footer .wrapper .socialLinks {
 
     #home img {
         width: 42rem;
+    }
+
+    /*################ SERVICES ##################*/
+    #services h2 {
+        width: 47rem;
+        margin-inline: auto;
+    }
+
+    #services .cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+
+    #services .card {
+        width: 30%;
+        flex-grow: 1;
     }
 }
 

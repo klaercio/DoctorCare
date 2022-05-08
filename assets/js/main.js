@@ -9,9 +9,9 @@ function onScroll() {
     }else {
         element.classList = 'scroll';
     } */
-
     showNavOnScrool();
     showBackToTopButtonOnScroll();
+    addContentBottomInMenu();
 }
 
 function showNavOnScrool() {
@@ -26,6 +26,21 @@ function showBackToTopButtonOnScroll() {
     
     if(scrollY >=500 ) 
         backToTopButton.classList.add('show');
+}
+
+function addContentBottomInMenu() {
+    homeActive.classList.remove('active');
+    servicesActive.classList.remove('active');
+    aboutActive.classList.remove('active');
+
+    if((scrollY >= 0) && (scrollY <= 990))
+        homeActive.classList.add('active');
+
+    if((scrollY >= 991) && (scrollY <= 2598))
+        servicesActive.classList.add('active');
+
+    if((scrollY >= 2599) && (scrollY <= 3654))
+        aboutActive.classList.add('active');
 }
 
 function openMenu() {
@@ -49,5 +64,8 @@ ScrollReveal({
     #services .card,
     #about,
     #about header,
-    #about .content`);
+    #about .content,
+    #contact,
+    #contact header,
+    #contact .content`);
     
