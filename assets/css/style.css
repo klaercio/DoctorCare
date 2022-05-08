@@ -697,6 +697,25 @@ footer .wrapper .socialLinks {
         width: 100%;
         height: 100%;
     }
+
+    /*################ footer ##################*/
+    
+    footer {
+        padding-block: 8rem;
+    }
+    footer p {
+        margin: 0;
+    }
+
+    footer .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    footer .wrapper .col-b .socialLinks {
+        margin: 0;
+    }
 }
 
 
