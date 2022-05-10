@@ -11,7 +11,7 @@ function onScroll() {
     } */
     showNavOnScrool();
     showBackToTopButtonOnScroll();
-    addContentBottomInMenu();
+    activateMenuAtCurrentSection();
 }
 
 function showNavOnScrool() {
@@ -28,7 +28,7 @@ function showBackToTopButtonOnScroll() {
         backToTopButton.classList.add('show');
 }
 
-function addContentBottomInMenu() {
+/* function addContentBottomInMenu() {
     homeActive.classList.remove('active');
     servicesActive.classList.remove('active');
     aboutActive.classList.remove('active');
@@ -36,11 +36,44 @@ function addContentBottomInMenu() {
     if((scrollY >= 0) && (scrollY <= 990))
         homeActive.classList.add('active');
 
-    if((scrollY >= 991) && (scrollY <= 2598))
+    if((scrollY >= 991) && (scrollY <= 1990))
         servicesActive.classList.add('active');
 
-    if((scrollY >= 2599) && (scrollY <= 3654))
+    if(scrollY >= 1991)
         aboutActive.classList.add('active');
+} */
+
+function activateMenuAtCurrentSection() {
+
+    const targetLine = (scrollY + (scrollY + innerHeight)) / 2;
+
+
+
+    /* console.log(`home ${home.offsetHeight} services ${services.offsetHeight} sobre ${about.offsetHeight}`);
+    console.log(`home ${home.offsetTop} services ${services.offsetTop} sobre ${about.offsetTop}`); */
+
+   /*  console.log(`homeTop - scrollY ${home.offsetTop - scrollY} homeInnetH ${home.offsetHeight}`)
+
+    console.log(`services ${services.offsetHeight - scrollY}`) */
+
+
+    // offsetHeight é fixo e o top tambem
+
+    homeActive.classList.remove('active');
+    servicesActive.classList.remove('active');
+    aboutActive.classList.remove('active');
+    
+     if ((home.offsetTop <= targetLine) && (home.offsetHeight >= targetLine)) {
+        homeActive.classList.add('active');
+    } 
+
+    if ((services.offsetTop  <= targetLine) && (services.offsetTop + services.offsetHeight)  >= targetLine)
+        servicesActive.classList.add('active');
+
+    if ((about.offsetTop <= targetLine) && (about.offsetTop + about.offsetHeight) >= targetLine)
+        aboutActive.classList.add('active'); 
+     
+
 }
 
 function openMenu() {
